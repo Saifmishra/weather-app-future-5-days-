@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       .one{
+           height: 200px;
+           width: 400px;
+       }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <div class="one">
+              <h3>Weather Information</h3>
+              <p>
+                  <b> Todays Temparature: </b><span id="temp"></span>&#176; C
+              </p>
+              <p>
+                <b> Sunrise: </b><span id="sunrise"></span>
+             </p>
+             <p>
+                <b> Sunset: </b><span id="sunset"></span>
+             </p>
+        </div>
+        <div>
+            <ul class="result">
+            </ul>
+        </div>
+    </div>
+
+    <div class="htm-weather-wraper">
+        <div class="htm-current-weather">
+            <div class="htm-current-1">
+                <h3><?php echo $weather['name']; ?></h3>
+                <p class="week-days"><?php echo date("l"); ?></p>
+                <p class="current-date"><?php echo date("F j, Y"); ?></p>
+                <p class="wind">Wind <?php echo $weather['current']['wind_speed']; ?> <?php echo $weather['current']['wind_speed_text']; ?></p>
+                <span class="humidity"><img src="<?php echo HTMEGA_ADDONS_PL_URL . 'assets/images/weather/weather-humidity.png' ?>" alt="weather-humidity"><span class="humidity-percent"><?php echo $weather['current']['humidity']; ?>%</span></span>
+            </div>
+            <div class="htm-current-2">
+            <img class="temp-icon" src="<?php echo HTMEGA_ADDONS_PL_URL . 'assets/images/weather/htmega-weather-tem.png' ?>" alt="weather-tem-icon">
+                <p class="temp-type"><?php echo $weather['current']['description']; ?></p>
+                <p class="temp-num"><?php echo $weather['current']['temp']; ?><sup>&deg;</sup>C</p>
+            </div>
+        </div>
+        <div class="htm-weather-sun">
+            <div class="htm-weather-sun-wraper">
+                <div class="sun-forcast sun-rise">
+                    <span><img src="<?php echo HTMEGA_ADDONS_PL_URL . 'assets/images/weather/weather-sunset-sunrise.png' ?>" alt="sun-forcast"> Sunrise <?php echo $weather['current']['sunrise_time']; ?></span>
+                    <span>Max: <?php echo $weather['current']['high']; ?><sup>&deg;</sup>C</span>
+                </div>
+                <div class="sun-forcast sun-set">
+                    <span><img src="<?php echo HTMEGA_ADDONS_PL_URL . 'assets/images/weather/weather-sunset-sunrise.png' ?>" alt="sun-forcast"> Sunset <?php echo $weather['current']['sunset_time']; ?></span>
+                    <span>Min: <?php echo $weather['current']['low']; ?><sup>&deg;</sup>C</span>
+                </div>
+            </div>
+        </div>
+        <div class="htm-weather-forcast">
+            hello 
+            <div class="forcast-day">
+                <p class="week-day">days</p>
+                <img src="<?php echo HTMEGA_ADDONS_PL_URL . 'assets/images/weather/weather-forcast-2.png' ?>" alt="forcast-day">
+                <p class="forcast-temp">Temp<sup>&deg;</sup>C</p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
